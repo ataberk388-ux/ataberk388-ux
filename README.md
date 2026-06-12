@@ -1,60 +1,74 @@
-## Hi there 👋
+# Ataberk Ayhan
 
-# Hi there 👋, I'm Ataberk
+**Backend & Full-Stack Engineer** · Ankara, Turkey
 
-## 🚀 About Me
-Full-Stack, Mobile & Embedded Systems Developer | Python, OpenCV, React, Node.js, SQL & MongoDB | Unity 3D & STM32 Enthusiast  
-I build **web apps, mobile apps, games, embedded systems, and computer vision projects** with modern technologies and clean design.  
+I build event-driven systems, privacy infrastructure, and full-stack products — mostly in TypeScript. I care about correctness under failure, clean boundaries between components, and systems that stay simple as they scale.
 
 ---
 
-## 💻 My Skills
+## Focus Areas
 
-### Frontend & Web
-- React, React Native, HTML, CSS, JavaScript, TypeScript  
-- TailwindCSS, Material-UI, Figma  
-- Responsive UI/UX design & animations  
-
-### Backend
-- Node.js, Python, Go  
-- Databases: SQL, PostgreSQL, MongoDB  
-- API development & integration  
-
-### Mobile Development
-- React Native, Expo  
-- Cross-platform apps with smooth UI  
-
-### Game Development
-- Unity 3D, C#  
-- Interactive games & 3D design  
-
-### Embedded & Hardware
-- STM32, Arduino, Microcontrollers  
-- Networking basics (Cisco)  
-
-### Computer Vision & AI
-- Python + OpenCV  
-- Image processing & simple AI experiments  
+- **Distributed Systems** — Event-driven architecture, CQRS, Saga orchestration, Transactional Outbox, idempotent consumers
+- **Backend Engineering** — NestJS, Fastify, tRPC, REST & WebSocket APIs, PostgreSQL, Redis, Apache Kafka
+- **Frontend & Full-Stack** — React, Next.js 15, Three.js, real-time collaboration (Yjs CRDT)
+- **Privacy & Compliance** — PII detection & masking pipelines, KVKK / GDPR / HIPAA patterns
+- **Tooling** — Turborepo monorepos, Docker, pnpm, GitHub Actions, Vitest
 
 ---
 
-## 🌟 Featured Projects
-- **[Task Manager API](https://github.com/ataberk388-ux/task-manager-api)** – Backend project with Node.js, Python, SQL & MongoDB  
-- **[Mini Blog](https://github.com/ataberk388-ux/mini-blog)** – Full-stack React app  
-- **[Mobile Todo App](https://github.com/ataberk388-ux/mobile-todo-app)** – React Native mobile app  
-- **[Unity 3D Game](https://github.com/ataberk388-ux/unity-game)** – Interactive 3D game  
-- **[STM32 Microcontroller Project](https://github.com/ataberk388-ux/stm32-project)** – Embedded systems experiment  
-- **[OpenCV Image Processing Project](https://github.com/ataberk388-ux/opencv-project)** – Python + OpenCV project  
+## Selected Projects
+
+### [llm-gateway](https://github.com/ataberk388-ux/llm-gateway)
+> Privacy-preserving reverse proxy for Claude and OpenAI
+
+Sits between your application and cloud LLMs. Detects Turkish TC Kimlik No (checksum-validated), IBANs (MOD-97), credit cards (Luhn), medical codes, emails, and custom keyword blocklists — replaces each with deterministic session tokens before the prompt leaves your network, then restores them in the response. Handles streaming (SSE, chunk-level restoration), assigns a 0–100 privacy risk score per request, fires Slack / PagerDuty webhooks on critical events, and ships a TypeScript client SDK that's a drop-in replacement for the Anthropic SDK.
+
+`Node.js 22` · `TypeScript` · `Fastify 5` · `Redis` · `Docker` · `Vitest`
 
 ---
 
-## 📫 Contact Me
-- 📧 Email: ataberk388@hotmail.com  
-- 🌐 LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)  
-- 🌟 GitHub: [github.com/ataberk388-ux](https://github.com/ataberk388-ux)  
+### [Event-Driven Order Service](https://github.com/ataberk388-ux/Event-driven)
+> NestJS + Kafka + PostgreSQL · CQRS · Saga · Event Sourcing
+
+Production-style order processing service demonstrating the full event-driven stack: commands hit the write side, events flow through Kafka (KRaft — no Zookeeper), sagas coordinate cross-module workflows via `@nestjs/cqrs`, and every domain event is appended to a PostgreSQL-backed event store for full audit and replay. The architecture deliberately surfaces the hard problems — outbox, idempotency, saga state persistence — as first-class design decisions rather than afterthoughts.
+
+`NestJS` · `Apache Kafka (KRaft)` · `PostgreSQL` · `Drizzle ORM` · `pnpm`
 
 ---
 
-## ⚡ Fun Fact
-- I love **building apps, games, embedded systems, and computer vision projects**  
-- Always learning **new frameworks, Python tricks, mobile UI/UX, cloud tech, and microcontroller programming**
+### [Synapse](https://github.com/ataberk388-ux/Event-driven)
+> Collaborative work OS — Kanban · Docs · Whiteboard
+
+Full-stack monorepo (Turborepo) with real-time collaboration across boards, documents (Yjs CRDT with live cursors), and a shared whiteboard (tldraw). tRPC runs **in-process** inside Next.js — no separate API server, no spoofable identity header, end-to-end type safety from DB to UI. Event fanout (activity feed, audit log, notifications, analytics) is driven by a single background worker reading a transactional Outbox via Postgres `LISTEN/NOTIFY` — no Kafka, no message broker, exactly-once semantics. 3 processes, 2 containers.
+
+`Next.js 15` · `React 19` · `tRPC` · `Prisma` · `PostgreSQL` · `Redis` · `WebSocket` · `Yjs` · `Auth.js`
+
+---
+
+### [PC Builder AI](https://github.com/ataberk388-ux/chat-app)
+> AI-powered configurator with an interactive 3D build viewer
+
+Describe your workload, get part recommendations from an AI consultant (OpenAI, Groq, Gemini, Claude, or local Ollama), and watch the build assemble in a Three.js scene — real-time compatibility engine (socket, RAM gen, form factor, PSU headroom), FPS estimates per game/resolution, exploded-view spring animations, and a shareable build URL. API key stays server-side behind an Express proxy.
+
+`React 18` · `TypeScript` · `Three.js / @react-three/fiber` · `TailwindCSS` · `Vite` · `GSAP` · `Framer Motion`
+
+---
+
+## Stack at a Glance
+
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
+![Apache Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+
+---
+
+## Contact
+
+[ataberk388@hotmail.com](mailto:ataberk388@hotmail.com) · [GitHub](https://github.com/ataberk388-ux)
