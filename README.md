@@ -63,6 +63,15 @@ A full-stack trading terminal that streams live market data directly from Binanc
 
 ---
 
+### [Somatek — IoT Smart Water System]
+> ESP32-based IoT water dispensing platform with real-time monitoring, MQTT control, QR payment & volume-based filling
+
+ESP32 + MQTT tabanlı akıllı su arıtma/dolum sistemi. Gerçek zamanlı sensör takibi (akış, seviye, kaçak), hacme dayalı dolum kontrolü (ISR), QR ödeme ile kredi yükleme, WebSocket canlı dashboard ve otomatik motor/anomali güvenlik sistemi içerir.
+
+`ESP32` · `MQTT (Mosquitto)` · `Node.js` · `Express` · `PostgreSQL` · `WebSocket` · `React` · `Docker`
+
+---
+
 ## Stack at a Glance
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
