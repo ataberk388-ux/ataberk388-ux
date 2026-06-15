@@ -39,7 +39,7 @@ Production-style order processing service demonstrating the full event-driven st
 ### [Synapse](https://github.com/ataberk388-ux/Event-driven)
 > Collaborative work OS — Kanban · Docs · Whiteboard
 
-Full-stack monorepo (Turborepo) with real-time collaboration across boards, documents (Yjs CRDT with live cursors), and a shared whiteboard (tldraw). tRPC runs **in-process** inside Next.js — no separate API server, no spoofable identity header, end-to-end type safety from DB to UI. Event fanout (activity feed, audit log, notifications, analytics) is driven by a single background worker reading a transactional Outbox via Postgres `LISTEN/NOTIFY` — no Kafka, no message broker, exactly-once semantics. 3 processes, 2 containers.
+Full-stack monorepo (Turborepo) with real-time collaboration across boards, documents (Yjs CRDT with live cursors), and a shared whiteboard (tldraw). tRPC runs **in-process** inside Next.js — no separate API server, no spoofable identity header, end-to-end type safety from DB to UI. Event fanout (activity feed, audit log, notifications, analytics) is driven by a single background worker reading a transactional Outbox via Postgres LISTEN/NOTIFY — no Kafka, no message broker, exactly-once semantics.
 
 `Next.js 15` · `React 19` · `tRPC` · `Prisma` · `PostgreSQL` · `Redis` · `WebSocket` · `Yjs` · `Auth.js`
 
@@ -51,6 +51,15 @@ Full-stack monorepo (Turborepo) with real-time collaboration across boards, docu
 Describe your workload, get part recommendations from an AI consultant (OpenAI, Groq, Gemini, Claude, or local Ollama), and watch the build assemble in a Three.js scene — real-time compatibility engine (socket, RAM gen, form factor, PSU headroom), FPS estimates per game/resolution, exploded-view spring animations, and a shareable build URL. API key stays server-side behind an Express proxy.
 
 `React 18` · `TypeScript` · `Three.js / @react-three/fiber` · `TailwindCSS` · `Vite` · `GSAP` · `Framer Motion`
+
+---
+
+### [Crypto Spot Trading Terminal](https://github.com/ataberk388-ux/crypto-trading-terminal)
+> Real-time Binance-style crypto spot trading terminal with paper trading and concurrent alarm engine
+
+A full-stack trading terminal that streams live market data directly from Binance (candles, order book, trades, markets) and enables paper trading with a virtual portfolio. Built around a high-throughput, thread-safe price alarm engine that evaluates ticks in real time and pushes triggers to the UI via Server-Sent Events (SSE).
+
+`Java 21` · `Spring Boot 3.5` · `Spring Security (JWT OAuth2)` · `PostgreSQL` · `WebSocket (Binance ingestion)` · `Server-Sent Events (SSE)` · `React 19` · `TypeScript` · `Vite` · `TanStack Query` · `TailwindCSS` · `lightweight-charts`
 
 ---
 
