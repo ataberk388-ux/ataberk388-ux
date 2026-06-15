@@ -18,6 +18,33 @@ I build event-driven systems, privacy infrastructure, and full-stack products �
 
 ## Selected Projects
 
+### [Crypto Spot Trading Terminal](https://github.com/ataberk388-ux/crypto-trading-terminal)
+> Real-time Binance-style crypto spot trading terminal with paper trading and concurrent alarm engine
+
+A full-stack trading terminal that streams live market data directly from Binance (candles, order book, trades, markets) and enables paper trading with a virtual portfolio. Built around a high-throughput, thread-safe price alarm engine that evaluates ticks in real time and pushes triggers to the UI via Server-Sent Events (SSE).
+
+`Java 21` · `Spring Boot 3.5` · `Spring Security (JWT OAuth2)` · `PostgreSQL` · `WebSocket (Binance ingestion)` · `Server-Sent Events (SSE)` · `React 19` · `TypeScript` · `Vite` · `TanStack Query` · `TailwindCSS` · `lightweight-charts`
+
+---
+
+### [Event-Driven Order Service](https://github.com/ataberk388-ux/Event-driven)
+> NestJS + Kafka + PostgreSQL · CQRS · Saga · Event Sourcing
+
+Production-style order processing service demonstrating the full event-driven stack: commands hit the write side, events flow through Kafka (KRaft — no Zookeeper), sagas coordinate cross-module workflows via @nestjs/cqrs, and every domain event is appended to a PostgreSQL-backed event store for full audit and replay. The architecture deliberately surfaces the hard problems — outbox, idempotency, saga state persistence — as first-class design decisions rather than afterthoughts.
+
+`NestJS` · `Apache Kafka (KRaft)` · `PostgreSQL` · `Drizzle ORM` · `pnpm`
+
+---
+
+### [Somatek — IoT Smart Water System](https://github.com/ataberk388-ux/somatek)
+> ESP32-based IoT water dispensing platform with real-time monitoring, MQTT control, QR payment & volume-based filling
+
+ESP32 + MQTT tabanlı akıllı su arıtma/dolum sistemi. Gerçek zamanlı sensör takibi (akış, seviye, kaçak), hacme dayalı dolum kontrolü (ISR), QR ödeme ile kredi yükleme, WebSocket canlı dashboard ve otomatik motor/anomali güvenlik sistemi içerir.
+
+`ESP32` · `MQTT` · `Node.js` · `Express` · `PostgreSQL` · `WebSocket` · `React` · `Docker`
+
+---
+
 ### [llm-gateway](https://github.com/ataberk388-ux/llm-gateway)
 > Privacy-preserving reverse proxy for Claude and OpenAI
 
@@ -27,19 +54,10 @@ Sits between your application and cloud LLMs. Detects Turkish TC Kimlik No (chec
 
 ---
 
-### [Event-Driven Order Service](https://github.com/ataberk388-ux/Event-driven)
-> NestJS + Kafka + PostgreSQL · CQRS · Saga · Event Sourcing
-
-Production-style order processing service demonstrating the full event-driven stack: commands hit the write side, events flow through Kafka (KRaft — no Zookeeper), sagas coordinate cross-module workflows via `@nestjs/cqrs`, and every domain event is appended to a PostgreSQL-backed event store for full audit and replay. The architecture deliberately surfaces the hard problems — outbox, idempotency, saga state persistence — as first-class design decisions rather than afterthoughts.
-
-`NestJS` · `Apache Kafka (KRaft)` · `PostgreSQL` · `Drizzle ORM` · `pnpm`
-
----
-
 ### [Synapse](https://github.com/ataberk388-ux/Event-driven)
 > Collaborative work OS — Kanban · Docs · Whiteboard
 
-Full-stack monorepo (Turborepo) with real-time collaboration across boards, documents (Yjs CRDT with live cursors), and a shared whiteboard (tldraw). tRPC runs **in-process** inside Next.js — no separate API server, no spoofable identity header, end-to-end type safety from DB to UI. Event fanout (activity feed, audit log, notifications, analytics) is driven by a single background worker reading a transactional Outbox via Postgres LISTEN/NOTIFY — no Kafka, no message broker, exactly-once semantics.
+Full-stack monorepo (Turborepo) with real-time collaboration across boards, documents (Yjs CRDT with live cursors), and a shared whiteboard (tldraw). tRPC runs in-process inside Next.js — no separate API server, no spoofable identity header, end-to-end type safety from DB to UI. Event fanout (activity feed, audit log, notifications, analytics) is driven by a single background worker reading a transactional Outbox via Postgres LISTEN/NOTIFY — no Kafka, no message broker, exactly-once semantics.
 
 `Next.js 15` · `React 19` · `tRPC` · `Prisma` · `PostgreSQL` · `Redis` · `WebSocket` · `Yjs` · `Auth.js`
 
@@ -51,24 +69,6 @@ Full-stack monorepo (Turborepo) with real-time collaboration across boards, docu
 Describe your workload, get part recommendations from an AI consultant (OpenAI, Groq, Gemini, Claude, or local Ollama), and watch the build assemble in a Three.js scene — real-time compatibility engine (socket, RAM gen, form factor, PSU headroom), FPS estimates per game/resolution, exploded-view spring animations, and a shareable build URL. API key stays server-side behind an Express proxy.
 
 `React 18` · `TypeScript` · `Three.js / @react-three/fiber` · `TailwindCSS` · `Vite` · `GSAP` · `Framer Motion`
-
----
-
-### [Crypto Spot Trading Terminal](https://github.com/ataberk388-ux/crypto-trading-terminal)
-> Real-time Binance-style crypto spot trading terminal with paper trading and concurrent alarm engine
-
-A full-stack trading terminal that streams live market data directly from Binance (candles, order book, trades, markets) and enables paper trading with a virtual portfolio. Built around a high-throughput, thread-safe price alarm engine that evaluates ticks in real time and pushes triggers to the UI via Server-Sent Events (SSE).
-
-`Java 21` · `Spring Boot 3.5` · `Spring Security (JWT OAuth2)` · `PostgreSQL` · `WebSocket (Binance ingestion)` · `Server-Sent Events (SSE)` · `React 19` · `TypeScript` · `Vite` · `TanStack Query` · `TailwindCSS` · `lightweight-charts`
-
----
-
-### [Somatek — IoT Smart Water System]
-> ESP32-based IoT water dispensing platform with real-time monitoring, MQTT control, QR payment & volume-based filling
-
-ESP32 + MQTT tabanlı akıllı su arıtma/dolum sistemi. Gerçek zamanlı sensör takibi (akış, seviye, kaçak), hacme dayalı dolum kontrolü (ISR), QR ödeme ile kredi yükleme, WebSocket canlı dashboard ve otomatik motor/anomali güvenlik sistemi içerir.
-
-`ESP32` · `MQTT (Mosquitto)` · `Node.js` · `Express` · `PostgreSQL` · `WebSocket` · `React` · `Docker`
 
 ---
 
